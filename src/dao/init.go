@@ -9,7 +9,7 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 )
 
-var db *gorm.DB
+var DB *gorm.DB
 
 ///初始化
 func Init() {
@@ -21,17 +21,10 @@ func Init() {
 	if err != nil {
 		panic(err)
 	}
-	defer db.Close()
+	db.SingularTable(true)
+	db.AutoMigrate(&do.Album{})
+	db.AutoMigrate(&do.Category{})
 
-	db.AutoMigrate(&do.Albumn{})
+	DB = db
 
-	var albumn = do.Albumn{
-		AlbumnName:     "三国演义",
-		AlbumnImageUrl: "三国演义.png",
-		AlbumnPlayer:   "袁阔成",
-		Description:    "三国演义精品评书",
-		ItemNumber:     365,
-	}
-
-	db.Debug().Create(&albumn)
 }
