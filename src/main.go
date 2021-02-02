@@ -43,7 +43,7 @@ func fileProcess() {
 		filenameOnly := strings.TrimSuffix(fullFilename, fileExt)
 		fmt.Println(filenameOnly)
 		//将每个文件名后面加上1，扩展名不变
-		err :=  os.Rename(path+"/"+f.Name(), path+"/"+fmt.Sprintf("%s%s%s", filenameOnly,"胜英传", fileExt))
+		err := os.Rename(path+"/"+f.Name(), path+"/"+fmt.Sprintf("%s%s%s", filenameOnly, "胜英传", fileExt))
 		if err != nil {
 			println(err.Error())
 		}

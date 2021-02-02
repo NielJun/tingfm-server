@@ -1,6 +1,7 @@
 package dao
 
 import (
+	"fmt"
 	"tingfm/do"
 )
 
@@ -9,11 +10,14 @@ func NewAlbum(album *do.Album) (err error) {
 	return nil
 }
 
-func SearchAlbum(albumName string) (album *do.Album, err error) {
+///模糊搜寻
+func SearchAlbum(albumName string) (searchResponse *do.SearchResponseAlbumListEntity, err error) {
 
-	album = &do.Album{}
+	searchResponse = &do.SearchResponseAlbumListEntity{Albums: make([]do.Album, 0, 10)}
 
-	DB.Where("album_name =?", albumName).First(album)
+	var param = fmt.Sprintf("%%%s%%", albumName)
+
+	DB.Where("album_name LIKE ?", param).Find(&searchResponse.Albums)
 
 	return
 }
@@ -26,4 +30,3 @@ func DelAlbum(albumName string) (err error) {
 	DB.Delete(&album)
 	return nil
 }
-
