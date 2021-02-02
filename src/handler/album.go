@@ -8,13 +8,11 @@ import (
 	"tingfm/service"
 )
 
-type NewAlbumRequestEntity struct {
-	AlbumName string `json:"album_name"`
-}
+
 
 func SearchAlbumHandle(c *gin.Context) {
 
-	var albumRequestEntity NewAlbumRequestEntity
+	var albumRequestEntity do.NewAlbumRequestEntity
 
 	err := c.Bind(&albumRequestEntity)
 	if err != nil {
@@ -54,7 +52,7 @@ func NewAlbumHandle(c *gin.Context) {
 }
 
 func DelAlbumHandle(c *gin.Context) {
-	var albumRequestEntity NewAlbumRequestEntity
+	var albumRequestEntity do.NewAlbumRequestEntity
 
 	err := c.Bind(&albumRequestEntity)
 	if err != nil {

@@ -26,7 +26,7 @@ func Init() {
 	// 把配置文件读取到结构体上
 
 	viper.SetConfigName("config")
-	viper.AddConfigPath("../config")
+	viper.AddConfigPath("./config")
 	err := viper.ReadInConfig()
 	if err != nil {
 		fmt.Println(err)

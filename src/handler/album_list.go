@@ -8,7 +8,6 @@ import (
 	"tingfm/service"
 )
 
-
 func GetAlbumListHandle(c *gin.Context) {
 	var params do.GetAlbumListRequestEntity
 

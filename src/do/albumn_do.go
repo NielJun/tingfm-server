@@ -23,4 +23,7 @@ func (r *Album) Marshal() ([]byte, error) {
 	return json.Marshal(r)
 }
 
-//////
+type NewAlbumRequestEntity struct {
+	AlbumName string `json:"album_name"`
+}
+
