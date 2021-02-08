@@ -24,7 +24,6 @@ func Init() {
 	db.SingularTable(true)
 	db.AutoMigrate(&do.Album{})
 	db.AutoMigrate(&do.Category{})
-
 	DB = db
 
 }
