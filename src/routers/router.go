@@ -32,12 +32,20 @@ func SetupRouter() *gin.Engine {
 		album.POST("/search_album", handler.SearchAlbumHandle)
 		album.POST("/album", handler.NewAlbumHandle)
 		album.DELETE("/album", handler.DelAlbumHandle)
+		album.POST("/add_played_time",handler.AddALbumPlayedTime)
 	}
 
 	///列表组
 	albumsList := r.Group("/albums")
 	{
 		albumsList.POST("/list", handler.GetAlbumListHandle)
+	}
+
+	///演播者组
+	playerList := r.Group("/players")
+	{
+		///根据类型取得对应的列表
+		playerList.POST("players", handler.GetPlayerListByCategoriesHandle)
 	}
 	return r
 }

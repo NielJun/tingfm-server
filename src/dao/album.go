@@ -2,6 +2,7 @@ package dao
 
 import (
 	"fmt"
+	"math/rand"
 	"tingfm/do"
 )
 
@@ -28,5 +29,23 @@ func DelAlbum(albumName string) (err error) {
 		AlbumName: albumName,
 	}
 	DB.Delete(&album)
+	return nil
+}
+
+/// 增加播放次数
+func AddALbumPlayedTime(albumName string) (err error) {
+
+	album := do.Album{}
+
+	DB.Where("album_name = ?", albumName).Take(&album)
+
+	//修改food模型的值
+
+	var randomValue = rand.Int63n(10)
+
+	album.PlayedTime += randomValue
+
+	DB.Save(&album)
+
 	return nil
 }

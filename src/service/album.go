@@ -22,9 +22,12 @@ func SearchAlbum(albumName string) (result string, err error) {
 	return string(bytes), err
 }
 
-func DelAlbum(album string)(err error)  {
+func DelAlbum(album string) (err error) {
 
 	return dao.DelAlbum(album)
 }
 
+func AddALbumPlayedTime(albumName string) (err error) {
 
+	return dao.AddALbumPlayedTime(albumName)
+}

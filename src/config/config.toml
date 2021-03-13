@@ -1,0 +1,15 @@
+# this is a server config toml  file
+
+title = "toml config"
+
+# redis
+redis = "127.0.0.1:3300"  
+
+# remote host mysql config
+[mysql]
+host = "8.136.136.220"
+port = 3306
+username = "root"
+password = "Mima281196."
+databasename = "tingfm"
+
