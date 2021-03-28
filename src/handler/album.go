@@ -82,5 +82,5 @@ func AddALbumPlayedTime(c *gin.Context) {
 		fmt.Printf("album  is not value able, err: %#v", err.Error())
 		return
 	}
-	c.JSON(http.StatusOK, nil)
+	c.JSON(http.StatusOK, "点击播放一次啦")
 }
