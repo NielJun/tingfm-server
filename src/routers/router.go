@@ -32,7 +32,7 @@ func SetupRouter() *gin.Engine {
 		album.POST("/search_album", handler.SearchAlbumHandle)
 		album.POST("/album", handler.NewAlbumHandle)
 		album.DELETE("/album", handler.DelAlbumHandle)
-		album.POST("/add_played_time",handler.AddALbumPlayedTime)
+		album.POST("/add_played_time", handler.AddALbumPlayedTime)
 	}
 
 	///列表组
@@ -46,6 +46,14 @@ func SetupRouter() *gin.Engine {
 	{
 		///根据类型取得对应的列表
 		playerList.POST("players", handler.GetPlayerListByCategoriesHandle)
+	}
+
+	///赚钱分组
+	money := r.Group("/money")
+	{
+		money.POST("post_money", handler.PostTodayUserMoneyHandle)
+		money.POST("get_today_money", handler.GetTodayUserMoneyHandle)
+		money.POST("get_someday_money", handler.GetSomeDayUserMoneyHandle)
 	}
 	return r
 }

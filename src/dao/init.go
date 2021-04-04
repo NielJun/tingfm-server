@@ -2,11 +2,10 @@ package dao
 
 import (
 	"fmt"
-	"tingfm/config"
-	"tingfm/do"
-
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"tingfm/config"
+	"tingfm/do"
 )
 
 var DB *gorm.DB
@@ -24,6 +23,7 @@ func Init() {
 	db.SingularTable(true)
 	db.AutoMigrate(&do.Album{})
 	db.AutoMigrate(&do.Category{})
+	db.AutoMigrate(&do.Money{})
 	DB = db
 
 }
